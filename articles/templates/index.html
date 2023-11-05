@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>content</th>   
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <th>{{article.id}}</th>
+                <th>{{article.title}}</th>
+                <th>{{article.content}}&emsp;<a href="{% url 'articles:delete' id=article.id %}" class="btn btn-danger">Delete</a>&emsp;<a href="{% url 'articles:update' id=article.id %}" class="btn btn-light">Update</a></th>
+                <br>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
